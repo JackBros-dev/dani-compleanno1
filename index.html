@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Auguri Daniele - Plus Ultra!</title>
+<style>
+  body { background: #121212; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 20px; }
+  button { background: #0070f3; border: none; color: white; padding: 15px 30px; font-size: 1.2em; border-radius: 10px; cursor: pointer; margin-top: 30px; }
+  button:hover { background: #005bb5; }
+  .finale { margin-top: 40px; font-size: 1.4em; }
+  img { max-width: 300px; margin-top: 20px; animation: bounce 1.5s infinite; }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+</style>
+</head>
+<body>
+<h1>Auguri Daniele! 🎉</h1>
+<p>10 anni di amicizia, 29 anni da eroe! <br>Il tuo anime preferito: <strong>My Hero Academia</strong></p>
+
+<img src="allmight.png" alt="All Might" />
+
+<button id="smashButton">Detroit Smash!</button>
+
+<div class="finale" id="finaleText"></div>
+
+<audio id="audioSmash" src="allmight_detroit_smash.mp3" preload="auto"></audio>
+<audio id="audioBoom" src="boom.mp3" preload="auto"></audio>
+
+<script>
+const smashBtn = document.getElementById('smashButton');
+const finaleText = document.getElementById('finaleText');
+const audioSmash = document.getElementById('audioSmash');
+const audioBoom = document.getElementById('audioBoom');
+
+smashBtn.addEventListener('click', () => {
+  audioSmash.currentTime = 0;
+  audioSmash.play();
+  audioSmash.onended = () => {
+    audioBoom.currentTime = 0;
+    audioBoom.play();
+    finaleText.innerHTML = "PLUS ULTRA! 🎆🎇";
+  };
+});
+</script>
+
+</body>
+</html>
